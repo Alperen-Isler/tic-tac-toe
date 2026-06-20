@@ -1,5 +1,5 @@
 (function createGameBoard(){
-    let gameBoard = [["-", "-", "X"], ["-", "X", "-"], ["X", "-", "-"]];
+    let gameBoard = [["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]];
     console.log(gameBoard);
 
     function createPlayer(name, symbol){
@@ -12,24 +12,22 @@
             gameBoard[numberOne].splice(numberTwo, 1, symbol);
         }
         const checkWinner = function(){
-            let gameBoardJoined = gameBoard.join();
-            console.log(gameBoardJoined);
-            if (gameBoardJoined === `${symbol},${symbol},${symbol},-,-,-,-,-,-`){ //first row
-                console.log(name + " is the winner;");
-            } else if (gameBoardJoined === `-,-,-,${symbol},${symbol},${symbol},-,-,-`){ //second row
-                console.log(name + " is the winner;");
-            } else if (gameBoardJoined === `-,-,-,-,-,-,${symbol},${symbol},${symbol}`){ //third row
-                console.log(name + " is the winner;");
-            } else if (gameBoardJoined === `${symbol},-,-,${symbol},-,-,${symbol},-,-`){ //first column
-                console.log(name + " is the winner;");
-            } else if (gameBoardJoined === `-,${symbol},-,-,${symbol},-,-,${symbol},-`){ //second column
-                console.log(name + " is the winner;");
-            } else if (gameBoardJoined === `-,-,${symbol},-,-,${symbol},-,-,${symbol}`){ //third column
-                console.log(name + " is the winner;");
-            } else if (gameBoardJoined === `${symbol},-,-,-,${symbol},-,-,-,${symbol}`){ //diagonal top-left to bottom-right
-                console.log(name + " is the winner;");
-            } else if (gameBoardJoined === `-,-,${symbol},-,${symbol},-,${symbol},-,-`){ //diagonal top-right to bottom-left
-                console.log(name + " is the winner;");
+            if(gameBoard[0][0] === symbol && gameBoard[0][1] === symbol && gameBoard[0][2] === symbol){ //first row
+                console.log(`${name} is the winner!`)
+            }else if (gameBoard[1][0] === symbol && gameBoard[1][1] === symbol && gameBoard[1][2] === symbol){ //second row
+                console.log(`${name} is the winner!`)
+            }else if (gameBoard[2][0] === symbol && gameBoard[2][1] === symbol && gameBoard[2][2] === symbol){ //third row
+                console.log(`${name} is the winner!`)
+            }else if (gameBoard[0][0] === symbol && gameBoard[1][0] === symbol && gameBoard[2][0] === symbol){ //first column
+                console.log(`${name} is the winner!`)
+            }else if (gameBoard[0][1] === symbol && gameBoard[1][1] === symbol && gameBoard[2][1] === symbol){ //second column
+                console.log(`${name} is the winner!`)
+            }else if (gameBoard[0][2] === symbol && gameBoard[1][2] === symbol && gameBoard[2][2] === symbol){ //third column
+                console.log(`${name} is the winner!`)
+            }else if (gameBoard[0][0] === symbol && gameBoard[1][1] === symbol && gameBoard[2][2] === symbol){ //diagonal one
+                console.log(`${name} is the winner!`)
+            }else if (gameBoard[0][2] === symbol && gameBoard[1][1] === symbol && gameBoard[2][0] === symbol){ //diagonal two
+                console.log(`${name} is the winner!`)
             }
         }
         return {name, symbol, getScore, incrementScore, makeMove, checkWinner};
@@ -38,6 +36,7 @@
     const playerAlperen = createPlayer("Alperen", "X");
     const playerTeyfik = createPlayer("Teyfik", "O");
 
+    playerTeyfik.checkWinner();
     playerAlperen.checkWinner();
 
     console.log({
@@ -54,3 +53,5 @@
 
 })();
 
+//ich muss mein checkWin nicht hard-coded machen sonder wenn auch Y oder X vermischt
+//sind trotzdem der Gewinner erkannt wird
