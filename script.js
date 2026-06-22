@@ -246,6 +246,8 @@
         mainGrid.style.zIndex = "0";
 
         playerTurnName.textContent = firstPlayerName.value;
+        playerOneScoreName.textContent = firstPlayerName.value;
+        playerTwoScoreName.textContent = secondPlayerName.value;
 
         const playerOne = createPlayer(firstPlayerName.value, "X");
         const playerTwo = createPlayer(secondPlayerName.value, "O");

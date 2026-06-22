@@ -216,6 +216,8 @@ form{
 
 .dialog-btn{
     border: solid 2px #3B82F6;
+    border-radius: 10px;
+    color: black;
     background-color: #FFFFFF;
     box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
 }
