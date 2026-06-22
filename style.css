@@ -48,6 +48,10 @@ body{
     background-color: #F4F5F8;
 }
 
+.container{
+    z-index: -1;
+}
+
 h1{
     text-align: center;
     font-size: 3rem;
@@ -70,6 +74,8 @@ h1{
     display: grid;
     justify-content: center;
     gap: 20px;
+    position: relative;
+    z-index: -1;
 }
 
 .game-cells{
@@ -124,6 +130,7 @@ h1{
     height: 100%;
     width: 100%;
     background-color: #FFFFFF;
+    font-weight: bold;
 }
 
 .player-two-score-text{
@@ -135,6 +142,7 @@ h1{
     height: 100%;
     width: 100%;
     background-color: #FFFFFF;
+    font-weight: bold;
 }
 
 .player-one-score{
@@ -192,4 +200,75 @@ h1{
 .new-game-btn:hover #refresh-svg{
     transform: rotate(360deg);
     transition: 2s;
+}
+
+input{
+    margin-bottom: 20px;
+}
+
+dialog{
+    top: -25%;
+    border: solid 2px #3B82F6;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    height: 220px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+.dialog-buttons{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.dialog-btn{
+    border: solid 2px #3B82F6;
+    background-color: #FFFFFF;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.dialog-btn:hover{
+    cursor: pointer;
+    background-color: #e7e7e7;
+}
+
+.start-game-button{
+    display: flex;
+    justify-content: center;
+}
+
+#start-game-btn{
+    background-color: #FFFFFF;
+    border: solid 2px #3B82F6;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    width: 280px;
+    height: 100px;
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+#start-game-btn:hover{
+    cursor: pointer;
+    background-color: #e7e7e7;
+}
+
+.cover{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 200;
+    width: 100vw;
+    height: 100vq;
+    background-color: #F4F5F8;
+}
+
+.blue-cell{
+    background-color: #3b83f682;
+}
+
+.red-cell{
+    background-color: rgba(255, 0, 0, 0.41);
 }

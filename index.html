@@ -1,40 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="cover">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic-Tac-Toe</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js"></script>
+    <script src="./script.js" defer></script>
 </head>
 <body>
     <div class="container">
         <div class="header">
             <h1><span class="text-blue">-</span> Tic-Tac-Toe <span class="text-blue">-</span></h1>
+            <div class="start-game-button">
+                <button id="start-game-btn">Start Game</button>
+                <dialog id="dialog">
+                    <form id="start-game-form">
+                        <label for="first-player-name">First Player's name:</label>
+                        <input id="first-player-name" type="text" maxlength="12" required>
+                        <label for="second-player-name">Second Player's name:</label>
+                        <input id="second-player-name" type="text" maxlength="12" required>
+                        <div class="dialog-buttons">
+                            <button class="dialog-btn" type="submit" id="start-game">Start Game</button>
+                            <button class="dialog-btn" type="button" id="close-dialog">Close</button>
+                        </div>
+                    </form>
+                </dialog>
+            </div>
         </div>
         <div class="main">
             <div>
-                <p class="player-turn"><span class="text-blue">Alperen</span>'s Turn</p>
+                <p class="player-turn"><span class="text-blue" id="player-turn-name"></span><span class="turn-text">'s Turn</span></p>
             </div>
             <div class="game-cells">
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
+                <div class="cell cell-one"></div>
+                <div class="cell cell-two"></div>
+                <div class="cell cell-three"></div>
+                <div class="cell cell-four"></div>
+                <div class="cell cell-five"></div>
+                <div class="cell cell-six"></div>
+                <div class="cell cell-seven"></div>
+                <div class="cell cell-eight"></div>
+                <div class="cell cell-nine"></div>
             </div>
             <div class="score-board">
-                <p class="player-one-score-text"><span class="text-blue">Alperen</span>'s Score:</p>
-                <p class="player-one-score text-blue">1</p>
-                <p class="player-two-score-text"><span class="text-red">Teyfik</span>'s Score:</p>
-                <p class="player-two-score text-red">2</p>
+                <p class="player-one-score-text"><span class="text-blue player-one-score-name">Alperen</span>'s Score:</p>
+                <p class="player-one-score text-blue">0</p>
+                <p class="player-two-score-text"><span class="text-red player-two-score-name">Teyfik</span>'s Score:</p>
+                <p class="player-two-score text-red">0</p>
             </div>
             <div class="new-game-button">
-                <button class="new-game-btn"><svg id="refresh-svg" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M480-160q-134 0-227-93t-93-227q0-134 93-227t227-93q69 0 132 28.5T720-690v-110h80v280H520v-80h168q-32-56-87.5-88T480-720q-100 0-170 70t-70 170q0 100 70 170t170 70q77 0 139-44t87-116h84q-28 106-114 173t-196 67Z"/></svg>New Game</button>
+                <button type="button" class="new-game-btn"><svg id="refresh-svg" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M480-160q-134 0-227-93t-93-227q0-134 93-227t227-93q69 0 132 28.5T720-690v-110h80v280H520v-80h168q-32-56-87.5-88T480-720q-100 0-170 70t-70 170q0 100 70 170t170 70q77 0 139-44t87-116h84q-28 106-114 173t-196 67Z"/></svg>Play Again</button>
             </div>
         </div>
         <div class="footer">
