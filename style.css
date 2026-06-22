@@ -49,6 +49,9 @@ body{
 }
 
 .container{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     z-index: -1;
 }
 
@@ -57,6 +60,10 @@ h1{
     font-size: 3rem;
     margin-bottom: 20px;
     margin-top: 20px;
+}
+
+.footer-pusher{
+    flex-grow: 1;
 }
 
 .player-turn{
@@ -272,4 +279,16 @@ form{
 
 .red-cell{
     background-color: rgba(255, 0, 0, 0.41);
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    height: 7vh;
+    width: 100vw;
+    border-top: solid 1px #3B82F6;
+    font-size: 1.2rem;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
 }
