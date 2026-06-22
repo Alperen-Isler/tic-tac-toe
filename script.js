@@ -166,6 +166,10 @@
                     cellFive.classList.add("red-cell")
                     cellSeven.classList.add("red-cell")
                 }
+            }else if (cellOne.textContent !== "" && cellTwo.textContent !== "" && cellThree.textContent !== "" && cellFour.textContent !== "" && cellFive.textContent !== "" && cellSix.textContent !== "" && cellSeven.textContent !== "" && cellEight.textContent !== "" && cellNine.textContent !== ""){
+                playerTurnText.textContent = "";
+                playerTurnName.style.color = "black";
+                playerTurnName.textContent = "It's a draw!";            
             }
         }
     
@@ -175,6 +179,7 @@
     function resetBoard(){
         gameBoard = [["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]];
         checkWinnerExists = false;
+        playerTurnName.style.color = "";
         playerTurnText.textContent= "'s turn"
         cellOne.textContent = "";
         cellTwo.textContent = "";
@@ -246,237 +251,246 @@
         const playerTwo = createPlayer(secondPlayerName.value, "O");
 
         cellOne.addEventListener("click", function(){
-        if (turn === "player-one"){
-            turn = "player-two";
-            cellOne.textContent = "X";
-            playerOne.makeMove(0, 0, playerOne.symbol);
-            playerTurnName.textContent = secondPlayerName.value;
-            playerOne.checkWinner(playerOne.name);
-            if (checkWinnerExists === true){
-                return;
+            cellOne.style.zIndex = "-1";
+            if (turn === "player-one"){
+                turn = "player-two";
+                cellOne.textContent = "X";
+                playerOne.makeMove(0, 0, playerOne.symbol);
+                playerTurnName.textContent = secondPlayerName.value;
+                playerOne.checkWinner(playerOne.name);
+                if (checkWinnerExists === true){
+                    return;
+                }
+                playerTurnName.classList.remove("text-blue");
+                playerTurnName.classList.add("text-red");
+            }else if (turn === "player-two"){
+                turn = "player-one";
+                cellOne.textContent = "O";
+                playerTwo.makeMove(0, 0, playerTwo.symbol);
+                playerTurnName.textContent = firstPlayerName.value;
+                playerTwo.checkWinner(playerTwo.name);
+                if (checkWinnerExists === true){
+                    return;
+                }
+                playerTurnName.classList.remove("text-red");
+                playerTurnName.classList.add("text-blue");
             }
-            playerTurnName.classList.remove("text-blue");
-            playerTurnName.classList.add("text-red");
-        }else if (turn === "player-two"){
-            turn = "player-one";
-            cellOne.textContent = "O";
-            playerTwo.makeMove(0, 0, playerTwo.symbol);
-            playerTurnName.textContent = firstPlayerName.value;
-            playerTwo.checkWinner(playerTwo.name);
-            if (checkWinnerExists === true){
-                return;
-            }
-            playerTurnName.classList.remove("text-red");
-            playerTurnName.classList.add("text-blue");
-        }
         });
 
         cellTwo.addEventListener("click", function(){
-        if (turn === "player-one"){
-            turn = "player-two";
-            cellTwo.textContent = "X";
-            playerOne.makeMove(0, 1, playerOne.symbol);
-            playerTurnName.textContent = secondPlayerName.value;
-            playerOne.checkWinner(playerOne.name);
-            if (checkWinnerExists === true){
-                return;
+            cellTwo.style.zIndex = "-1";
+            if (turn === "player-one"){
+                turn = "player-two";
+                cellTwo.textContent = "X";
+                playerOne.makeMove(0, 1, playerOne.symbol);
+                playerTurnName.textContent = secondPlayerName.value;
+                playerOne.checkWinner(playerOne.name);
+                if (checkWinnerExists === true){
+                    return;
+                }
+                playerTurnName.classList.remove("text-blue");
+                playerTurnName.classList.add("text-red");
+            }else if (turn === "player-two"){
+                turn = "player-one";
+                cellTwo.textContent = "O";
+                playerTwo.makeMove(0, 1, playerTwo.symbol);
+                playerTurnName.textContent = firstPlayerName.value;
+                playerTwo.checkWinner(playerTwo.name);
+                if (checkWinnerExists === true){
+                    return;
+                }
+                playerTurnName.classList.remove("text-red");
+                playerTurnName.classList.add("text-blue");
             }
-            playerTurnName.classList.remove("text-blue");
-            playerTurnName.classList.add("text-red");
-        }else if (turn === "player-two"){
-            turn = "player-one";
-            cellTwo.textContent = "O";
-            playerTwo.makeMove(0, 1, playerTwo.symbol);
-            playerTurnName.textContent = firstPlayerName.value;
-            playerTwo.checkWinner(playerTwo.name);
-            if (checkWinnerExists === true){
-                return;
-            }
-            playerTurnName.classList.remove("text-red");
-            playerTurnName.classList.add("text-blue");
-        }
         });   
 
         cellThree.addEventListener("click", function(){
-        if (turn === "player-one"){
-            turn = "player-two";
-            cellThree.textContent = "X";
-            playerOne.makeMove(0, 2, playerOne.symbol);
-            playerTurnName.textContent = secondPlayerName.value;
-            playerOne.checkWinner(playerOne.name);
-            if (checkWinnerExists === true){
-                return;
+            cellThree.style.zIndex = "-1";
+            if (turn === "player-one"){
+                turn = "player-two";
+                cellThree.textContent = "X";
+                playerOne.makeMove(0, 2, playerOne.symbol);
+                playerTurnName.textContent = secondPlayerName.value;
+                playerOne.checkWinner(playerOne.name);
+                if (checkWinnerExists === true){
+                    return;
+                }
+                playerTurnName.classList.remove("text-blue");
+                playerTurnName.classList.add("text-red");
+            }else if (turn === "player-two"){
+                turn = "player-one";
+                cellThree.textContent = "O";
+                playerTwo.makeMove(0, 2, playerTwo.symbol);
+                playerTurnName.textContent = firstPlayerName.value;
+                playerTwo.checkWinner(playerTwo.name);
+                if (checkWinnerExists === true){
+                    return;
+                }
+                playerTurnName.classList.remove("text-red");
+                playerTurnName.classList.add("text-blue");
             }
-            playerTurnName.classList.remove("text-blue");
-            playerTurnName.classList.add("text-red");
-        }else if (turn === "player-two"){
-            turn = "player-one";
-            cellThree.textContent = "O";
-            playerTwo.makeMove(0, 2, playerTwo.symbol);
-            playerTurnName.textContent = firstPlayerName.value;
-            playerTwo.checkWinner(playerTwo.name);
-            if (checkWinnerExists === true){
-                return;
-            }
-            playerTurnName.classList.remove("text-red");
-            playerTurnName.classList.add("text-blue");
-        }
         });
 
         cellFour.addEventListener("click", function(){
-        if (turn === "player-one"){
-            turn = "player-two";
-            cellFour.textContent = "X";
-            playerOne.makeMove(1, 0, playerOne.symbol);
-            playerTurnName.textContent = secondPlayerName.value;
-            playerOne.checkWinner(playerOne.name);
-            if (checkWinnerExists === true){
-                return;
+            cellFour.style.zIndex = "-1";
+            if (turn === "player-one"){
+                turn = "player-two";
+                cellFour.textContent = "X";
+                playerOne.makeMove(1, 0, playerOne.symbol);
+                playerTurnName.textContent = secondPlayerName.value;
+                playerOne.checkWinner(playerOne.name);
+                if (checkWinnerExists === true){
+                    return;
+                }
+                playerTurnName.classList.remove("text-blue");
+                playerTurnName.classList.add("text-red");
+            }else if (turn === "player-two"){
+                turn = "player-one";
+                cellFour.textContent = "O";
+                playerTwo.makeMove(1, 0, playerTwo.symbol);
+                playerTurnName.textContent = firstPlayerName.value;
+                playerTwo.checkWinner(playerTwo.name);
+                if (checkWinnerExists === true){
+                    return;
+                }
+                playerTurnName.classList.remove("text-red");
+                playerTurnName.classList.add("text-blue");
             }
-            playerTurnName.classList.remove("text-blue");
-            playerTurnName.classList.add("text-red");
-        }else if (turn === "player-two"){
-            turn = "player-one";
-            cellFour.textContent = "O";
-            playerTwo.makeMove(1, 0, playerTwo.symbol);
-            playerTurnName.textContent = firstPlayerName.value;
-            playerTwo.checkWinner(playerTwo.name);
-            if (checkWinnerExists === true){
-                return;
-            }
-            playerTurnName.classList.remove("text-red");
-            playerTurnName.classList.add("text-blue");
-        }
         });
 
         cellFive.addEventListener("click", function(){
-        if (turn === "player-one"){
-            turn = "player-two";
-            cellFive.textContent = "X";
-            playerOne.makeMove(1, 1, playerOne.symbol);
-            playerTurnName.textContent = secondPlayerName.value;
-            playerOne.checkWinner(playerOne.name);
-            if (checkWinnerExists === true){
-                return;
+            cellFive.style.zIndex = "-1";
+            if (turn === "player-one"){
+                turn = "player-two";
+                cellFive.textContent = "X";
+                playerOne.makeMove(1, 1, playerOne.symbol);
+                playerTurnName.textContent = secondPlayerName.value;
+                playerOne.checkWinner(playerOne.name);
+                if (checkWinnerExists === true){
+                    return;
+                }
+                playerTurnName.classList.remove("text-blue");
+                playerTurnName.classList.add("text-red");
+            }else if (turn === "player-two"){
+                turn = "player-one";
+                cellFive.textContent = "O";
+                playerTwo.makeMove(1, 1, playerTwo.symbol);
+                playerTurnName.textContent = firstPlayerName.value;
+                playerTwo.checkWinner(playerTwo.name);
+                if (checkWinnerExists === true){
+                    return;
+                }
+                playerTurnName.classList.remove("text-red");
+                playerTurnName.classList.add("text-blue");
             }
-            playerTurnName.classList.remove("text-blue");
-            playerTurnName.classList.add("text-red");
-        }else if (turn === "player-two"){
-            turn = "player-one";
-            cellFive.textContent = "O";
-            playerTwo.makeMove(1, 1, playerTwo.symbol);
-            playerTurnName.textContent = firstPlayerName.value;
-            playerTwo.checkWinner(playerTwo.name);
-            if (checkWinnerExists === true){
-                return;
-            }
-            playerTurnName.classList.remove("text-red");
-            playerTurnName.classList.add("text-blue");
-        }
         });
 
         cellSix.addEventListener("click", function(){
-        if (turn === "player-one"){
-            turn = "player-two";
-            cellSix.textContent = "X";
-            playerOne.makeMove(1, 2, playerOne.symbol);
-            playerTurnName.textContent = secondPlayerName.value;
-            playerOne.checkWinner(playerOne.name);
-            if (checkWinnerExists === true){
-                return;
+            cellSix.style.zIndex = "-1";
+            if (turn === "player-one"){
+                turn = "player-two";
+                cellSix.textContent = "X";
+                playerOne.makeMove(1, 2, playerOne.symbol);
+                playerTurnName.textContent = secondPlayerName.value;
+                playerOne.checkWinner(playerOne.name);
+                if (checkWinnerExists === true){
+                    return;
+                }
+                playerTurnName.classList.remove("text-blue");
+                playerTurnName.classList.add("text-red");
+            }else if (turn === "player-two"){
+                turn = "player-one";
+                cellSix.textContent = "O";
+                playerTwo.makeMove(1, 2, playerTwo.symbol);
+                playerTurnName.textContent = firstPlayerName.value;
+                playerTwo.checkWinner(playerTwo.name);
+                if (checkWinnerExists === true){
+                    return;
+                }
+                playerTurnName.classList.remove("text-red");
+                playerTurnName.classList.add("text-blue");
             }
-            playerTurnName.classList.remove("text-blue");
-            playerTurnName.classList.add("text-red");
-        }else if (turn === "player-two"){
-            turn = "player-one";
-            cellSix.textContent = "O";
-            playerTwo.makeMove(1, 2, playerTwo.symbol);
-            playerTurnName.textContent = firstPlayerName.value;
-            playerTwo.checkWinner(playerTwo.name);
-            if (checkWinnerExists === true){
-                return;
-            }
-            playerTurnName.classList.remove("text-red");
-            playerTurnName.classList.add("text-blue");
-        }
         });
 
         cellSeven.addEventListener("click", function(){
-        if (turn === "player-one"){
-            turn = "player-two";
-            cellSeven.textContent = "X";
-            playerOne.makeMove(2, 0, playerOne.symbol);
-            playerTurnName.textContent = secondPlayerName.value;
-            playerOne.checkWinner(playerOne.name);
-            if (checkWinnerExists === true){
-                return;
+            cellSeven.style.zIndex = "-1";
+            if (turn === "player-one"){
+                turn = "player-two";
+                cellSeven.textContent = "X";
+                playerOne.makeMove(2, 0, playerOne.symbol);
+                playerTurnName.textContent = secondPlayerName.value;
+                playerOne.checkWinner(playerOne.name);
+                if (checkWinnerExists === true){
+                    return;
+                }
+                playerTurnName.classList.remove("text-blue");
+                playerTurnName.classList.add("text-red");
+            }else if (turn === "player-two"){
+                turn = "player-one";
+                cellSeven.textContent = "O";
+                playerTwo.makeMove(2, 0, playerTwo.symbol);
+                playerTurnName.textContent = firstPlayerName.value;
+                playerTwo.checkWinner(playerTwo.name);
+                if (checkWinnerExists === true){
+                    return;
+                }
+                playerTurnName.classList.remove("text-red");
+                playerTurnName.classList.add("text-blue");
             }
-            playerTurnName.classList.remove("text-blue");
-            playerTurnName.classList.add("text-red");
-        }else if (turn === "player-two"){
-            turn = "player-one";
-            cellSeven.textContent = "O";
-            playerTwo.makeMove(2, 0, playerTwo.symbol);
-            playerTurnName.textContent = firstPlayerName.value;
-            playerTwo.checkWinner(playerTwo.name);
-            if (checkWinnerExists === true){
-                return;
-            }
-            playerTurnName.classList.remove("text-red");
-            playerTurnName.classList.add("text-blue");
-        }
         });
 
         cellEight.addEventListener("click", function(){
-        if (turn === "player-one"){
-            turn = "player-two";
-            cellEight.textContent = "X";
-            playerOne.makeMove(2, 1, playerOne.symbol);
-            playerTurnName.textContent = secondPlayerName.value;
-            playerOne.checkWinner(playerOne.name);
-            if (checkWinnerExists === true){
-                return;
+            cellEight.style.zIndex = "-1";
+            if (turn === "player-one"){
+                turn = "player-two";
+                cellEight.textContent = "X";
+                playerOne.makeMove(2, 1, playerOne.symbol);
+                playerTurnName.textContent = secondPlayerName.value;
+                playerOne.checkWinner(playerOne.name);
+                if (checkWinnerExists === true){
+                    return;
+                }
+                playerTurnName.classList.remove("text-blue");
+                playerTurnName.classList.add("text-red");
+            }else if (turn === "player-two"){
+                turn = "player-one";
+                cellEight.textContent = "O";
+                playerTwo.makeMove(2, 1, playerTwo.symbol);
+                playerTurnName.textContent = firstPlayerName.value;
+                playerTwo.checkWinner(playerTwo.name);
+                if (checkWinnerExists === true){
+                    return;
+                }
+                playerTurnName.classList.remove("text-red");
+                playerTurnName.classList.add("text-blue");
             }
-            playerTurnName.classList.remove("text-blue");
-            playerTurnName.classList.add("text-red");
-        }else if (turn === "player-two"){
-            turn = "player-one";
-            cellEight.textContent = "O";
-            playerTwo.makeMove(2, 1, playerTwo.symbol);
-            playerTurnName.textContent = firstPlayerName.value;
-            playerTwo.checkWinner(playerTwo.name);
-            if (checkWinnerExists === true){
-                return;
-            }
-            playerTurnName.classList.remove("text-red");
-            playerTurnName.classList.add("text-blue");
-        }
         });
 
         cellNine.addEventListener("click", function(){
-        if (turn === "player-one"){
-            turn = "player-two";
-            cellNine.textContent = "X";
-            playerOne.makeMove(2, 2, playerOne.symbol);
-            playerTurnName.textContent = secondPlayerName.value;
-            playerOne.checkWinner(playerOne.name);
-            if (checkWinnerExists === true){
-                return;
+            cellNine.style.zIndex = "-1";
+            if (turn === "player-one"){
+                turn = "player-two";
+                cellNine.textContent = "X";
+                playerOne.makeMove(2, 2, playerOne.symbol);
+                playerTurnName.textContent = secondPlayerName.value;
+                playerOne.checkWinner(playerOne.name);
+                if (checkWinnerExists === true){
+                    return;
+                }
+                playerTurnName.classList.remove("text-blue");
+                playerTurnName.classList.add("text-red");
+            }else if (turn === "player-two"){
+                turn = "player-one";
+                cellNine.textContent = "O";
+                playerTwo.makeMove(2, 2, playerTwo.symbol);
+                playerTurnName.textContent = firstPlayerName.value;
+                playerTwo.checkWinner(playerTwo.name);
+                if (checkWinnerExists === true){
+                    return;
+                }
+                playerTurnName.classList.remove("text-red");
+                playerTurnName.classList.add("text-blue");
             }
-            playerTurnName.classList.remove("text-blue");
-            playerTurnName.classList.add("text-red");
-        }else if (turn === "player-two"){
-            turn = "player-one";
-            cellNine.textContent = "O";
-            playerTwo.makeMove(2, 2, playerTwo.symbol);
-            playerTurnName.textContent = firstPlayerName.value;
-            playerTwo.checkWinner(playerTwo.name);
-            if (checkWinnerExists === true){
-                return;
-            }
-            playerTurnName.classList.remove("text-red");
-            playerTurnName.classList.add("text-blue");
-        }
         });
     }   
 
