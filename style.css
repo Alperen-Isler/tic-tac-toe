@@ -316,10 +316,8 @@ form{
     transition: 0.5s;
     }
 
-    .new-game-btn:active{
-    background-color: #e7e7e7;
-    cursor: pointer;
-    border: solid 3px #3B82F6;
+    .new-game-btn{
+        margin-bottom: 10px;
     }
 
     .cell:active{
