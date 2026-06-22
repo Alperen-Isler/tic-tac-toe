@@ -243,6 +243,7 @@ form{
 #start-game-btn{
     background-color: #FFFFFF;
     border: solid 2px #3B82F6;
+    font-size: 2rem;
     box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
     width: 280px;
     height: 100px;
